@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#2457d6">
+  <title>PDCAAS Finder</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>PDCAAS Finder</h1>
+  <p class="muted">Search representative protein-quality scores and estimate quality-adjusted protein.</p>
+</header>
+
+<main>
+  <section class="panel">
+    <h2>Quality tree</h2>
+    <div class="tree">
+      <div class="band"><strong>0.90–1.00: Excellent</strong>Usually meets the reference amino-acid pattern after digestibility correction.</div>
+      <div class="band"><strong>0.75–0.89: High</strong>Good overall quality, with a modest limitation or lower digestibility.</div>
+      <div class="band"><strong>0.50–0.74: Moderate</strong>Often limited by one essential amino acid; complementary proteins can improve the meal.</div>
+      <div class="band"><strong>Below 0.50: Low</strong>Substantial limitation relative to the reference pattern.</div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Search</h2>
+    <div class="controls">
+      <input id="search" type="search" placeholder="Search whey, oats, soy, lysine…">
+      <select id="category" aria-label="Category"></select>
+    </div>
+    <div id="results" class="results" style="margin-top:14px"></div>
+  </section>
+
+  <section class="panel">
+    <h2>Protein calculator</h2>
+    <div class="calc-grid">
+      <label>Protein on label (g)
+        <input id="grams" inputmode="decimal" type="number" min="0" step="0.1" placeholder="e.g. 5.1">
+      </label>
+      <label>Protein source
+        <select id="proteinSelect"></select>
+      </label>
+    </div>
+    <div id="calcOutput" class="output"></div>
+    <p class="muted small">This multiplication is a practical comparison tool, not a direct measurement of absorbed amino acids or muscle-protein synthesis.</p>
+  </section>
+
+  <section class="panel notice">
+    <h2>Important limitation</h2>
+    <p>PDCAAS is ingredient- and processing-specific. A branded food cannot be assigned an exact score from its nutrition label alone. Mixed foods require the amino-acid profile and digestibility of the full protein blend.</p>
+    <p>The FAO has recommended DIAAS as a more informative successor because it evaluates digestible essential amino acids individually at the end of the small intestine.</p>
+  </section>
+</main>
+
+<footer>
+  Starter database based on cited studies and official FAO methodology. Values are representative, not regulatory calculations for a specific product.
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
